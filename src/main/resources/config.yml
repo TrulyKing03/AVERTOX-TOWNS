@@ -1,0 +1,54 @@
+marker:
+  name: "Town Marker Stick"
+
+messages:
+  enter: "Entering city <name>"
+  leave: "Leaving city <name>"
+  application_submitted: "Your application for <type> <name> was submitted for admin review."
+  application_need_corners: "Mark both corners with the marker stick first."
+  app_started: "Application started for <type> <name>. Left-click first corner and right-click second corner."
+  role_set: "Role point set for <role>."
+  no_owned_town_here: "You must be inside your approved city or village to set a role point."
+  admin_approved: "Your <type> <name> was approved."
+  admin_rejected: "Your <type> <name> was rejected."
+
+territory:
+  speed_bonus_scalar: 0.08
+
+fishing:
+  fast_min_wait_ticks: 20
+  fast_max_wait_ticks: 60
+  bonus_catch_chance: 0.25
+
+boosts:
+  break_boost_seconds: 3
+  break_boost_amplifier: 0
+  farmer_extra_drop_chance: 0.25
+  woodcutter_extra_drop_chance: 0.2
+  miner_extra_drop_chance: 0.2
+
+revenue:
+  interval_minutes: 10
+  amount_per_interval: 50.0
+
+automation:
+  materials:
+    FARMER: COMPOSTER
+    FISHERMAN: BARREL
+    WOODCUTTER: OAK_WOOD
+    MINER: BLAST_FURNACE
+
+sell_prices:
+  WHEAT: 2.0
+  CARROT: 2.0
+  POTATO: 2.0
+  BEETROOT: 2.0
+  COD: 6.0
+  SALMON: 7.0
+  OAK_LOG: 4.0
+  BIRCH_LOG: 4.0
+  SPRUCE_LOG: 4.0
+  COAL: 5.0
+  RAW_IRON: 9.0
+  RAW_GOLD: 12.0
+  DIAMOND: 40.0

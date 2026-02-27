@@ -1,0 +1,23 @@
+name: AVERTOX-TOWNS
+version: 1.0.0
+main: dev.trulyking.avertoxtowns.AvertoxTownsPlugin
+api-version: '1.20'
+authors: [TrulyKing03]
+description: City and Village Territory System
+softdepend: [Vault]
+
+commands:
+  create:
+    description: Create city or village applications.
+    usage: /create city <name> | /create village <name> | /create city finish
+  set:
+    description: Set city role points.
+    usage: /set city <farmer|fisherman|woodcutter|miner>
+  townadmin:
+    description: Open town admin dashboard.
+    usage: /townadmin
+
+permissions:
+  avertoxtowns.admin:
+    description: Access to town admin dashboard and controls.
+    default: op

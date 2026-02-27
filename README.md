@@ -22,19 +22,6 @@ Players apply for a city or village, mark territory corners in-world, submit for
 
 ---
 
-## Feature Checklist
-
-- [x] Players must apply to create a city or village.
-- [x] Resource boosts and break boost (for fisherman, farmer, woodcutter, miner) only apply within city territory.
-- [x] Cities and villages generate revenue for their owners.
-- [x] Enter/leave territory notifications.
-- [x] Territory-only crop regrowth, faster fishing, and movement boost.
-- [x] Outside territory: no automatic crop regrowth.
-- [x] Automation block tied to `/set city <role>` location.
-- [x] Automation menu and sell handler available through the placed automation block.
-
----
-
 ## City and Village Creation Process
 
 1. Player runs `/create city <name>` (or village equivalent if configured).

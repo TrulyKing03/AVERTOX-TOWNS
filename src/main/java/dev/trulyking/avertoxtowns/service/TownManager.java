@@ -16,6 +16,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
@@ -55,6 +56,44 @@ public final class TownManager {
         CreateSession session = new CreateSession(playerId, type, name);
         sessions.put(playerId, session);
         return session;
+    }
+
+    public boolean isTownNameTaken(String name) {
+        String normalized = normalizeName(name);
+        if (normalized.isEmpty()) {
+            return false;
+        }
+
+        for (Town town : towns.values()) {
+            if (town.status() == TownStatus.REJECTED) {
+                continue;
+            }
+            if (normalizeName(town.name()).equals(normalized)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isNameUnavailable(String name, UUID excludedPlayerId) {
+        String normalized = normalizeName(name);
+        if (normalized.isEmpty()) {
+            return false;
+        }
+
+        if (isTownNameTaken(normalized)) {
+            return true;
+        }
+
+        for (CreateSession session : sessions.values()) {
+            if (excludedPlayerId != null && session.playerId().equals(excludedPlayerId)) {
+                continue;
+            }
+            if (normalizeName(session.name()).equals(normalized)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void clearSession(UUID playerId) {
@@ -118,6 +157,13 @@ public final class TownManager {
         sessions.remove(uuid);
         save();
         return town;
+    }
+
+    private String normalizeName(String value) {
+        if (value == null) {
+            return "";
+        }
+        return value.trim().replaceAll("\\s+", " ").toLowerCase(Locale.ROOT);
     }
 
     public Town getTown(int id) {

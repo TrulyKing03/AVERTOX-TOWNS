@@ -102,6 +102,9 @@ Config includes:
 - `/set city miner`
   - Sets the role point where that role automation block is placed.
 
+- `/townadmin`
+  - Opens the admin dashboard (requires `avertoxtowns.admin` permission).
+
 - `Admin dashboard actions`
   - Review pending applications, approve territories, reject territories.
 
@@ -213,6 +216,7 @@ Data lifecycle:
 - Deny automation and sell access from unlinked blocks
 - Enforce territory-only boosts to avoid global buff abuse
 - Validate ownership and admin approval before activation
+- Prevent duplicate city/village names (case-insensitive)
 
 ---
 
@@ -237,6 +241,9 @@ Run `/create city <name>`, mark corners with the provided stick, then run `/crea
 
 ### Does creation activate immediately?
 No. The request goes to admin dashboard and must be approved first.
+
+### Can two towns use the same name?
+No. City/village names are unique (case-insensitive) while pending/approved.
 
 ### Where do I set role automation blocks?
 Use `/set city farmer`, `/set city fisherman`, `/set city woodcutter`, `/set city miner` inside your approved territory.

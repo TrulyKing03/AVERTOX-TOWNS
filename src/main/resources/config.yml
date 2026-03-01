@@ -7,6 +7,7 @@ messages:
   application_submitted: "Your application for <type> <name> was submitted for admin review."
   application_need_corners: "Mark both corners with the marker stick first."
   app_started: "Application started for <type> <name>. Left-click first corner and right-click second corner."
+  duplicate_name: "A city or village named <name> already exists or is pending."
   role_set: "Role point set for <role>."
   no_owned_town_here: "You must be inside your approved city or village to set a role point."
   admin_approved: "Your <type> <name> was approved."

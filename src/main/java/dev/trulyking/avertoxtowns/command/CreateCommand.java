@@ -34,6 +34,12 @@ public final class CreateCommand implements CommandExecutor {
 
         String first = args[0].toLowerCase(Locale.ROOT);
         if (first.equals("finish") || (args.length >= 2 && args[1].equalsIgnoreCase("finish"))) {
+            CreateSession session = plugin.townManager().getSession(player.getUniqueId()).orElse(null);
+            if (session != null && plugin.townManager().isTownNameTaken(session.name())) {
+                player.sendMessage(plugin.message("duplicate_name", "<name>", session.name()));
+                return true;
+            }
+
             Town town = plugin.townManager().finishSession(player);
             if (town == null) {
                 player.sendMessage(plugin.message("application_need_corners"));
@@ -80,6 +86,11 @@ public final class CreateCommand implements CommandExecutor {
         String name = nameBuilder.toString().trim();
         if (name.isEmpty() || name.equalsIgnoreCase("finish")) {
             player.sendMessage("Provide a valid name.");
+            return true;
+        }
+
+        if (plugin.townManager().isNameUnavailable(name, player.getUniqueId())) {
+            player.sendMessage(plugin.message("duplicate_name", "<name>", name));
             return true;
         }
 
